@@ -53,7 +53,7 @@ NTSTATUS NTAPI HookNtQuerySystemInformation(
     {
         if (previousProcessInfo)
         {
-            if ((TargetProcessPid != 0 && TargetProcessPid == HandleToULong(currentProcessInfo->UniqueProcessId)) ||
+            if ((TargetProcessPid != 0 && TargetProcessPid == ::HandleToULong(currentProcessInfo->UniqueProcessId)) ||
                 (TargetProcessName[0] && (_wcsnicmp(TargetProcessName, currentProcessInfo->ImageName.Buffer, (currentProcessInfo->ImageName.Length / sizeof(WCHAR))) == 0))
                 )
             {
